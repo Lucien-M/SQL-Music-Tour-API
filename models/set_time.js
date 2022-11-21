@@ -1,23 +1,22 @@
-// DEPENDENCIES
+//DEPENDENCIES
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const sequelize = new Sequelize(process.env.PG_URI);
 
 // MODEL
-class Event extends Model {}
+class Set_Time extends Model {}
 
-Event.init(
+Set_Time.init(
   {
     event_id: {
-      type: DataTypes.INTEGER,
-      primarykey: true,
-      autoIncrement: true
-    },
-    name: {
-      type: DataTypes.STRING,
+      type: DataTypes.SMALLINT,
       allowNull: false
     },
-    date: {
-      type: DataTypes.DATE,
+    stage_id: {
+      type: DataTypes.SMALLINT,
+      allowNull: false
+    },
+    band_id: {
+      type: DataTypes.SMALLINT,
       allowNull: false
     },
     start_time: {
@@ -27,15 +26,20 @@ Event.init(
     end_time: {
       type: DataTypes.DATE,
       allowNull: false
+    },
+    event_id: {
+      type: DataTypes.INTEGER,
+      primarykey: true,
+      autoIncrement: true
     }
   },
   {
     sequelize,
-    modelName: "Event",
-    tableName: "event",
+    modelName: "Set_Time",
+    tableName: "set_time",
     timestamps: false
   }
 );
 
 // EXPORT
-module.exports = Event;
+module.exports = Set_Time;

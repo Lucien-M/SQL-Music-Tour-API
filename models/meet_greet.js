@@ -1,41 +1,41 @@
-// DEPENDENCIES
+//DEPENDENCIES
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const sequelize = new Sequelize(process.env.PG_URI);
 
 // MODEL
-class Event extends Model {}
+class Meet_Greet extends Model {}
 
-Event.init(
+Meet_Greet.init(
   {
     event_id: {
+      type: DataTypes.SMALLINT,
+      allowNull: false
+    },
+    band_id: {
+      type: DataTypes.SMALLINT,
+      allowNull: false
+    },
+    meet_start_time: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    meet_end_time: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    meet_greet_id: {
       type: DataTypes.INTEGER,
-      primarykey: true,
+      primaryKey: true,
       autoIncrement: true
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    start_time: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    end_time: {
-      type: DataTypes.DATE,
-      allowNull: false
     }
   },
   {
     sequelize,
-    modelName: "Event",
-    tableName: "event",
+    modelName: "Meet_Greet",
+    tableName: "meet_greet",
     timestamps: false
   }
 );
 
 // EXPORT
-module.exports = Event;
+module.exports = Meet_Greet;
