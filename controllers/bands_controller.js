@@ -28,7 +28,7 @@ bands.get("/:name", async (req, res) => {
         {
           model: MeetGreet,
           as: "meet_greets",
-          // attributes: { exclude: ["band_id", "event_id"] },
+          attributes: { exclude: ["band_id", "event_id"] },
           include: {
             model: Event,
             as: "event",
@@ -40,7 +40,7 @@ bands.get("/:name", async (req, res) => {
         {
           model: SetTime,
           as: "set_times",
-          // attributes: { exclude: ["band_id", "event_id"] },
+          attributes: { exclude: ["band_id", "event_id"] },
           include: {
             model: Event,
             as: "event",
